@@ -1,10 +1,10 @@
-    
-// Function to determine marker size based on earthquake magnitude
+// Bimi Bisht
+// Determine marker size based on earthquake magnitude
 function markerSize(feature) {
   return Math.sqrt(Math.abs(feature.properties.mag)) * 5;
 }
 
-// Function to determine marker color based on earthquake magnitude
+// Determine  marker color based on earthquake magnitude
 var colors = ["#7FFF00", "#dfedbe", "#eede9f", "#FF8C00", "	#FA8072", "#FF0000"]
 function fillColor(feature) {
   var mag = feature.properties.mag;
@@ -28,7 +28,7 @@ function fillColor(feature) {
   }
 }
 
-// Base layers for maps (no data yet)
+// Base layers for maps 
 var attribution = "Map data &copy; <a href=\"https://www.openstreetmap.org/\">OpenStreetMap</a> contributors, <a href=\"https://creativecommons.org/licenses/by-sa/2.0/\">CC-BY-SA</a>, Imagery © <a href=\"https://www.mapbox.com/\">Mapbox</a>";
 
 var satelliteMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token={accessToken}", {
@@ -52,7 +52,7 @@ var outdoorsMap = L.tileLayer("https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.
   accessToken: API_KEY
 });
 
-// Create a baseMaps object
+// Creating a baseMaps object
 var baseMaps = {
   "Satellite": satelliteMap,
   "Grayscale": lightMap,
@@ -64,7 +64,7 @@ var queryUrl = "https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_we
 
 var platesPath = "GeoJSON/PB2002_boundaries.json";
 
-// Perform a GET request to the query URL
+//  GET request to the query URL
 d3.json(queryUrl, function(data) {
     d3.json(platesPath, function(platesData) {
   
